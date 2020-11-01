@@ -1,5 +1,9 @@
 # vuejs-firebase-auth-demo
 
+## Setup
+1. Change the firebase config in main.js
+2. Run npm run serve
+
 ## Project setup
 ```
 npm install
