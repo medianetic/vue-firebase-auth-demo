@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Secret from '../views/Secret.vue'
@@ -10,6 +11,12 @@ import { firebase } from '@firebase/app'
 import '@firebase/auth'
 
 const routes = [
+  {
+    path: '/home',
+    name: 'home',
+    component: Home
+  },
+  
   {
     path: '/login',
     name: 'login',
@@ -39,11 +46,13 @@ router.beforeEach((to,from,next) => {
   // ToDo
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   const isAuthenticated = firebase.auth().currentUser;
+  
   if(requiresAuth && !isAuthenticated) {
-    next("/login");
+    next("/");
   } else {
     next();
   }
 })
+
 
 export default router

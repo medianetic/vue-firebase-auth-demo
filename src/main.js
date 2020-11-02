@@ -16,11 +16,17 @@ Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 
 // Enter your firebase config data here
+
+
 const firebaseConfig = {
-    apiKey: "...",
-    authDomain: "...",
-    ....
-  };
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
+};
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -29,9 +35,7 @@ firebase.initializeApp(firebaseConfig);
 let app;
 
 firebase.auth().onAuthStateChanged(user=> {
-  // Make sure the onAuth fired before app is loaded
   console.log(user);
-
   if(!app) {
     app = new Vue({
       router,

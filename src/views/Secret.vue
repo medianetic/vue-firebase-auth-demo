@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1>Secret</h1>
+        <p>Here is the content, which only registered user can access.</p>
     </div>
 </template>
 

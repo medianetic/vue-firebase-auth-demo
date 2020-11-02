@@ -6,15 +6,19 @@
         <div v-if="!this.loggedIn">
           <form @submit.prevent="pressed">
 
-              <div class="login">
-                <input type="email" placeholder="login" v-model="email">
-              </div>
+              <div class="col-md-6 offset-md-3">
 
-              <div class="password">
-                <input type="password" placeholder="password" v-model="password">
-              </div>
+                <div class="login form-group">
+                  <input type="email" class="form-control" placeholder="login" v-model="email">
+                </div>
 
-              <button class="mt-2" type="submit">Login</button>
+                <div class="password form-group">
+                  <input type="password" class="form-control" placeholder="password" v-model="password">
+                </div>
+
+                <button class="mt-2 btn btn-primary" type="submit">Login</button>
+              
+              </div>
 
               <div v-if="error" id="error" class="error">{{error.message}}</div>
               <p class="mt-1">Need an account? Click here to <router-link to="/register">register</router-link></p>
